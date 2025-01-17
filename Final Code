@@ -1,0 +1,35 @@
+//create a menu object
+//create a _meal property with a value of an empty string ('')
+//add a _price property with a value of 0
+const menu = {
+  _meal:'',
+  _price: 0,
+  //use the set keyword to create a meal setter method with mealToCheck as a parameter.
+  //In the body of the setter method, create an if statement that checks if mealToCheck is a string. If it is, return the object’s _meal property with mealToCheck assigned as the value.
+
+//use the set keyword to create a price setter with priceToCheck as a parameter.make sure the value associated with _price is always a number.
+  set meal(mealToCheck) {
+    if (typeof mealToCheck === 'string') {
+      return (this._meal = mealToCheck);
+    }
+    },
+  set price(priceToCheck){
+    if (typeof priceToCheck === 'number') {
+      return (this._price = priceToCheck);
+    }
+  },
+// use a getter method that proactively checks if a meal and price have been properly set, before returning the values.Below the setters, use the get keyword to create a todaysSpecial method.
+//create an if…else statement to check if _meal and _price values exist (or are truthy values). If so, return a string telling potential website visitors what Today’s Special is. If _meal and _price values do not exist (or are falsy) return the string 'Meal or price was not set correctly!'
+
+    get todaysSpecial() {
+      if (this._menu && this._price) {
+        return `todays Special is ${this._meal} for just ${this._price}!`;
+      } else {
+        return 'Meal or price was not set correctly!';
+      }
+    }
+};
+// use the getter method to console.log() Today’s Special
+  menu._meal = 'Mashed Potatoes';
+  menu._price = 46;
+console.log(menu.todaysSpecial);
